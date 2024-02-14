@@ -1,0 +1,21 @@
+mixin intro()
+  .intro
+    //- вставлять блоки во внешний контейнер неверно
+    //- все блоки содержат в себе container без доп класса tutorial__wrapper
+    .container
+      p(style="margin-top: 40px;") Текст&nbsp;с&nbsp;мнемониками
+      +custom-select({
+        placeholder: "Стоимости",
+        error: "Выберите тему обращения",
+        optionsList: [
+          {text: "По популярности", value: "id-1"},
+          {text: "По отзывам", value: "id-2"},
+          {text: "По возрастанию цены", value: "id-3"},
+          {text: "По убыванию цены", value: "id-4"},
+          {text: "Рекомендованные", value: "id-5"},
+          {text: "Ближайшие даты", value: "id-6"}
+        ]
+      })(data-select="", data-validate-type="select", data-name="sort-select", data-id="id-select-1").custom-select
+      p(style="margin-top: 40px;") Пример использования +img()
+      p(style="margin-bottom: 40px;")
+        +img("content", "placeholder", "png", 120, 120, "Пример")

@@ -1,0 +1,33 @@
+mixin custom-select(options = {})
+  - const selectLabel = options.label ? options.label : false
+  - const selectError = options.error ? options.error : false
+  - const selectPlaceholder = options.placeholder ? options.placeholder : false
+  - const buttonAriaLabel = options.buttonAriaLabel ? options.buttonAriaLabel : "Выберите одну из опций"
+  - const disabledState = options.disabled ? true : false
+  div&attributes(attributes)
+    if selectError
+      span.custom-select__error!=selectError
+    button.custom-select__button(type="button", aria-label=buttonAriaLabel, disabled=disabledState)
+      span.custom-select__sort-label Сортировать по
+      if selectLabel
+        span.custom-select__label!=selectLabel
+      if selectPlaceholder
+        span.custom-select__placeholder!=selectPlaceholder
+      span.custom-select__text
+      +icon("icon-triangle", 10, 10).custom-select__button-icon
+    ul.custom-select__list(role="listbox")
+      each item in options.optionsList
+        - const ariaSelected = item.isActive ? "true" : "false"
+        li.custom-select__item(class=itemClass, tabindex="0", data-select-value=item.value, aria-selected=ariaSelected, role="option")!=item.text
+//-  +custom-select({
+  error: "Выберите тему обращения",
+  optionsList: [
+    {text: "Стоимости", value: "id-1", isActive: true},
+    {text: "По популярности", value: "id-2"},
+    {text: "По отзывам", value: "id-3"},
+    {text: "По возрастанию цены", value: "id-4"},
+    {text: "По убыванию цены", value: "id-5"},
+    {text: "Рекомендованные", value: "id-6"},
+    {text: "Ближайшие даты", value: "id-7"}
+    ]
+  })(data-select, data-validate-type="select", data-name="some-name", data-id="id-example-3").custom-select

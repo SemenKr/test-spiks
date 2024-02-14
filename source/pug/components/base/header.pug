@@ -1,0 +1,19 @@
+mixin header(headerMods, currentUrl)
+  -
+    const headerLinks = [
+      {
+        href: "index.html",
+        text: "Главная"
+      },
+      {
+        href: "#",
+        text: "Страница 2"
+      },
+      {
+        href: "#",
+        text: "Страница 3"
+      },
+    ]
+  header.header
+    .container
+      a.logo.header__logo(href="index.html", aria-label="Переход на главную страницу")
