@@ -1,0 +1,18 @@
+mixin search-form(options={})
+  - const inputLabel = options.inputLabel ? options.inputLabel : false
+  - const inputPlaceholder = options.inputPlaceholder ? options.inputPlaceholder : false
+  - const inputType = options.inputType ? options.inputType : "search"
+  - const inputName = options.inputName ? options.inputName : false
+  - const inputValue = options.inputValue ? options.inputValue : false
+  .search-form()&attributes(attributes)
+    form(action="#", method="post", autocomplete="off")
+      .search-form__field
+        label
+          if inputLabel
+            span.search-form__field-label!= inputLabel
+          input(type="search", name="search", value=inputValue, placeholder="search for a&nbsp;product, flower, etc")
+        +icon('icon-search', 20, 20).search-form__field-icon.search-form__field-icon--search
+        button.search-form__field-btn.search-form__field-btn--close(type="button", aria-label="Закрыть фильтр")
+        button.search-form__field-btn.search-form__field-btn--backspace(type="reset", aria-label="Удалить")
+          +icon("icon-backspace", 20, 20)
+      button.visually-hidden(type="submit") отправить

@@ -1,0 +1,124 @@
+.search-form {
+  position: relative;
+  width: 100%;
+
+  &__field {
+    position: relative;
+
+    label {
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+
+    input {
+      padding: 12px 20px;
+      border: 1px solid $color-nobel;
+      /* stylelint-disable */
+      -webkit-appearance: textfield;
+      /* stylelint-enable */
+      border-radius: 12px;
+      background-color: transparent;
+      width: 100%;
+      font-size: 16px;
+      line-height: 135%;
+      font-weight: 400;
+      color: #fff;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+
+      &::placeholder {
+        color: #fff;
+      }
+
+      @include vp-1023 {
+        padding: 16px 64px 16px 45px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  }
+
+  &__field-icon {
+    width: 14px;
+    height: auto;
+
+    @include vp-1023 {
+      width: 16px;
+    }
+  }
+
+  &__field-icon--search {
+    position: absolute;
+    top: 50%;
+    left: 33px;
+    color: #fff;
+    transition:
+      color $trans-default,
+      opacity $trans-default;
+    transform: translateY(-50%);
+    opacity: 1;
+
+    @include vp-1023 {
+      left: 16px;
+    }
+  }
+
+  &__field-btn {
+    position: absolute;
+    top: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0;
+    border: none;
+    background-color: $color-transparent;
+    transition: opacity $tf-default;
+
+    &--close {
+      left: 16px;
+      color: #3c3a3a;
+
+      &:focus-visible {
+        display: flex;
+      }
+    }
+
+    &--backspace {
+      right: 16px;
+      color: #625f5f;
+    }
+
+    svg {
+      width: 24px;
+      height: auto;
+    }
+
+    @include vp-1023 {
+      display: flex;
+    }
+  }
+
+  &:focus-within {
+    & .search-form__field-icon--search {
+      opacity: 0.8;
+    }
+
+    & .search-form__field-btn--backspace {
+      display: flex;
+      cursor: pointer;
+      pointer-events: visible;
+      opacity: 1;
+
+      @include hover-focus {
+        opacity: 0.8;
+      }
+    }
+  }
+}
