@@ -18,3 +18,16 @@ mixin header(headerMods, currentUrl)
     .container
       a.logo.header__logo(href="index.html", aria-label="Переход на главную страницу") Marketplace
       +search-form()
+      +custom-toggle({
+        inputLabel: "Чекбокс",
+        inputName: "user-agreement",
+        inputValue: "user-agreement-1",
+        inputChecked: false
+      }).custom-toggle--checkbox
+      +custom-toggle({
+        inputLabel: "Concentrate",
+        inputName: "user-agreement",
+        inputValue: "user-agreement-1",
+        inputChecked: false,
+        inputIcon: "icon-leaf"
+      }).custom-toggle--badge

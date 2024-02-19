@@ -12,7 +12,7 @@
     }
 
     input {
-      padding: 12px 20px;
+      padding: 12px 20px 12px 50px;
       border: 1px solid $color-nobel;
       /* stylelint-disable */
       -webkit-appearance: textfield;
@@ -23,18 +23,12 @@
       font-size: 16px;
       line-height: 135%;
       font-weight: 400;
-      color: #fff;
+      color: $color-nobel;
       outline: none;
       -webkit-tap-highlight-color: transparent;
 
       &::placeholder {
-        color: #fff;
-      }
-
-      @include vp-1023 {
-        padding: 16px 64px 16px 45px;
-        font-size: 14px;
-        font-weight: 300;
+        color: $color-nobel;
       }
     }
   }
@@ -52,7 +46,7 @@
     position: absolute;
     top: 50%;
     left: 33px;
-    color: #fff;
+    color: $color-nobel;
     transition:
       color $trans-default,
       opacity $trans-default;
@@ -85,7 +79,9 @@
       left: 16px;
       color: #3c3a3a;
 
-      &:focus-visible {
+      &:focus,
+      &:hover,
+      &:visited {
         display: flex;
       }
     }
